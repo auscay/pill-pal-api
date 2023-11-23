@@ -226,9 +226,7 @@ Voila! Your user has been created and is now ready to log in! You will receive a
         "name": "Hydra User",
         "created_at": "2023-11-23T12:34:56Z",
         "updated_at": "2023-11-23T12:34:56Z"
-        // Other user attributes
     }
-}
 }
 ```
 
