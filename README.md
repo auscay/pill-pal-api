@@ -211,6 +211,7 @@ You can send a Form Multipart payload or a JSON payload like this.
     "name":"Hydra User",
     "email":"user@hydra.project",
     "password":"Surprisingly A Good Password"
+    "password_confirmation":"Surprisingly A Good Password"
 }
 ```
 
