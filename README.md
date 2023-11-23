@@ -211,10 +211,24 @@ You can send a Form Multipart payload or a JSON payload like this.
     "name":"Hydra User",
     "email":"user@hydra.project",
     "password":"Surprisingly A Good Password"
+    "password_confirmation":"Surprisingly A Good Password"
 }
 ```
 
-Voila! Your user has been created and is now ready to log in!
+Voila! Your user has been created and is now ready to log in! You will receive a 201 Response like this
+
+```json
+{
+    "error": 0,
+    "user": {
+        "id": 1,
+        "email": "user@hydra.project",
+        "name": "Hydra User",
+        "created_at": "2023-11-23T12:34:56Z",
+        "updated_at": "2023-11-23T12:34:56Z"
+    }
+}
+```
 
 If this user already exists, then you will receive a 409 Response like this
 
