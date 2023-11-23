@@ -25,28 +25,33 @@ class UserController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        // Validate the incoming request data
         $creds = $request->validate([
             'email' => 'required|email',
-            'password' => 'required',
-            'name' => 'nullable|string',
+            'password' => 'required|confirmed',
+            'name' => 'required', 'min:3',
         ]);
 
+        // Check if a user with the provided email already exists
         $user = User::where('email', $creds['email'])->first();
         if ($user) {
+            // If user exists, return an error response
             return response(['error' => 1, 'message' => 'user already exists'], 409);
         }
 
+        // Create a new user with the validated data
         $user = User::create([
             'email' => $creds['email'],
             'password' => Hash::make($creds['password']),
             'name' => $creds['name'],
         ]);
 
+        // Attach a default role to the newly created user
         $defaultRoleSlug = config('hydra.default_user_role_slug', 'user');
         $user->roles()->attach(Role::where('slug', $defaultRoleSlug)->first());
 
-        return $user;
-    }
+        // Return the created user
+        return response(['error' => 0, 'user' => $user], 201);    }
 
     /**
      * Authenticate an user and dispatch token.
