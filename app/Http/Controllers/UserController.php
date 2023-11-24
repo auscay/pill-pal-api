@@ -78,7 +78,7 @@ class UserController extends Controller {
 
         $plainTextToken = $user->createToken('hydra-api-token', $roles)->plainTextToken;
 
-        return response(['error' => 0, 'id' => $user->id, 'token' => $plainTextToken], 200);
+        return response(['error' => 0, 'id' => $user->id, 'user' => $user, 'token' => $plainTextToken], 200);
     }
 
     /**
