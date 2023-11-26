@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('medication_schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('medication_name');
             $table->integer('dosage');
             $table->string('unit');
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->longText('description');
             $table->time('medication_time');
-            $table->string('notification_preferences');
+            $table->boolean('notification_preferences');
             $table->timestamps();
         });
     }

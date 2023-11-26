@@ -46,4 +46,9 @@ class User extends Authenticatable {
     public function roles() {
         return $this->belongsToMany(Role::class, 'user_roles');
     }
+
+    //Relationship to MedicationSchedule
+    public function medicationSchedule() {
+        return $this->hasMany(MedicationSchedule::class, 'user_id');
+    }
 }

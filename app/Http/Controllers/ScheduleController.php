@@ -39,7 +39,7 @@ class ScheduleController extends Controller
             'notification_preferences' => 'required'
         ]);
 
-        $creds['user_id'] = null;
+        $creds['user_id'] = auth()->id();
 
         // create medication schedule
         $schedule = MedicationSchedule::create($creds);
@@ -51,6 +51,17 @@ class ScheduleController extends Controller
             'schedule' => $schedule,
         ], 201);
 
+    }
+
+    /**
+     * Display the user resource.
+     *
+     * @param  \App\Models\MedicationSchedule  $medicationSchedule
+     * @return \Illuminate\Http\Response
+     */
+    public function schedule()
+    {       
+        return auth()->user()->medicationSchedule;
     }
 
     /**
@@ -89,7 +100,6 @@ class ScheduleController extends Controller
             'notification_preferences' => 'required'
         ]);
 
-        $creds['user_id'] = null;
 
         // Find the schedule by ID
         $schedule = MedicationSchedule::findOrFail($id);

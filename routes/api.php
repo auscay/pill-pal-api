@@ -31,13 +31,19 @@ Route::put('users/{user}', [UserController::class, 'update'])->middleware(['auth
 Route::post('users/{user}', [UserController::class, 'update'])->middleware(['auth:sanctum', 'ability:admin,super-admin,user']);
 Route::patch('users/{user}', [UserController::class, 'update'])->middleware(['auth:sanctum', 'ability:admin,super-admin,user']);
 Route::get('me', [UserController::class, 'me'])->middleware('auth:sanctum');
-Route::post('login', [UserController::class, 'login']);
+Route::post('login', [UserController::class, 'login'])->name('login');
 
 Route::apiResource('roles', RoleController::class)->except(['create', 'edit'])->middleware(['auth:sanctum', 'ability:admin,super-admin,user']);
 Route::apiResource('users.roles', UserRoleController::class)->except(['create', 'edit', 'show', 'update'])->middleware(['auth:sanctum', 'ability:admin,super-admin']);
 
-// Return all medication schedule
-Route::apiResource('schedule', ScheduleController::class);
+Route::apiResource('schedule', ScheduleController::class)->except('index', 'show')->middleware('auth:sanctum');
 
-// 
+// Get all schedule info
+Route::get('schedule',[ScheduleController::class, 'index'])->middleware('auth:sanctum', 'ability:admin');
+
+// Get one schedule info
+Route::get('schedule',[ScheduleController::class, 'show'])->middleware('auth:sanctum', 'ability:admin');
+
+// Get user schedule
+Route::get('mySchedule', [ScheduleController::class, 'schedule'])->middleware('auth:sanctum');
 
