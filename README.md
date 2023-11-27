@@ -2,16 +2,17 @@ User Role and Management can be found on Hydra api documentation
 
 
 
-**Medication Schedule Documentation**
+Medication Schedule Documentation
 
-**Create a medication schedule**
+Create a Medication Schedule
 
-You can make an HTTP POST call to create a new schedule to the following endpoint.
-https://pillpal-api.pouletmedia.ng/api/schedule
+You can make an HTTP POST call to create a new schedule at the following endpoint:
+
+Endpoint: https://pillpal-api.pouletmedia.ng/api/schedule
 
 API Payload & Response
 
-You can send a Form Multipart payload or a JSON payload like this.
+You can send a Form Multipart payload or a JSON payload like this:
 
  {
     "medication_name": "TEGRITOL",
@@ -24,6 +25,7 @@ You can send a Form Multipart payload or a JSON payload like this.
     "medication_time": "07:15:04",
     "notification_preferences": "sms"
 }
+
 
 You will receive a 201 response like this
 
