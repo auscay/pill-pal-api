@@ -11,6 +11,7 @@ Endpoint: https://pillpal-api.pouletmedia.ng/api/schedule
 API Payload & Response
 You can send a Form Multipart payload or a JSON payload like this:
 
+``json
  {
     "medication_name": "TEGRITOL",
     "dosage": "1",
@@ -22,6 +23,7 @@ You can send a Form Multipart payload or a JSON payload like this:
     "medication_time": "07:15:04",
     "notification_preferences": "sms"
 }
+``json
 
 
 You will receive a 201 response like this
