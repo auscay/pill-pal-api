@@ -169,17 +169,17 @@ You will receive a 201 response like this:
 ```json
 {
    "id": 11,
-   `"user_id": 2,`
+   "user_id": 2,`
    "medication_name": "Chroloroquine",
-   `"dosage": 500,`
-   `"unit": mg,`
-   `"medication_cycle": "weekly",`
-   `"start_date": "2023-11-26",`     
+   "dosage": 500,`
+   "unit": mg,`
+   "medication_cycle": "weekly",
+   "start_date": "2023-11-26",     
     "end_date": "2023-11-26",
-   `"description": "My headache drug",`
-   `"medication_time": "08:00:00",`
-   `"notification_preferences": 1,`
-   `"created_at": "2023-11-26T15:45:46.000000Z",`
+   "description": "My headache drug",
+   "medication_time": "08:00:00",
+   "notification_preferences": 1,
+   "created_at": "2023-11-26T15:45:46.000000Z",
     "updated_at": "2023-11-26T15:45:46.000000Z"
 }
 ```
