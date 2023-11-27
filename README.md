@@ -1,7 +1,10 @@
+User Role and Management can be found on Hydra api documentation
 
-Medication Schedule Documentation
 
-Create a medication schedule
+
+**Medication Schedule Documentation**
+
+**Create a medication schedule**
 
 You can make an HTTP POST call to create a new schedule to the following endpoint.
 https://pillpal-api.pouletmedia.ng/api/schedule
@@ -11,7 +14,6 @@ API Payload & Response
 You can send a Form Multipart payload or a JSON payload like this.
 
  {
-    
     "medication_name": "TEGRITOL",
     "dosage": "1",
     "unit": "ten",
@@ -45,7 +47,7 @@ You will receive a 201 response like this
 }
 
 
-Show one medication schedule
+**Show one medication schedule**
 
 You can make an HTTP GET call to show a single schedule to the following endpoint.
 https://pillpal-api.pouletmedia.ng/api/schedule/{id}
@@ -78,7 +80,7 @@ If the id is not found you will get a response like this
 }
 
 
-Update a medication schedule
+**Update a medication schedule**
 
 You can make an HTTP PUT call to create a new schedule to the following endpoint.
 https://pillpal-api.pouletmedia.ng/api/schedule/{id}
@@ -122,7 +124,7 @@ You will receive a 201 response like this
     }
 }
 
-Delete one medication schedule
+**Delete one medication schedule**
 
 You can make an HTTP DELETE call to delete a single schedule to the following endpoint.
 https://pillpal-api.pouletmedia.ng/api/schedule/{id}
@@ -138,47 +140,68 @@ You will receive a 201 response like this
 }
 
 
-Authorization & Relationships
+**Authorization & Relationships**
+
 User/Admin Authorization
+
 Only authenticated users can create schedules
+
 Authenticated users can view only their personal created schedules using the following endpoint. Also add the Bearer Authorization token assigned to the user after login.
+
 For example GET https://pillpal-api.pouletmedia.ng/api/mySchedule
+
 You will receive a 201 response like this:
 {
-"id": 11,
-Plain Text
+   "id": 11,
    `"user_id": 2,`
-"medication_name": "Chroloroquine",
-Plain Text
+   "medication_name": "Chroloroquine",
    `"dosage": 500,`
    `"unit": mg,`
    `"medication_cycle": "weekly",`
    `"start_date": "2023-11-26",`     
-"end_date": "2023-11-26",
-Plain Text
+    "end_date": "2023-11-26",
    `"description": "My headache drug",`
    `"medication_time": "08:00:00",`
    `"notification_preferences": 1,`
    `"created_at": "2023-11-26T15:45:46.000000Z",`
-"updated_at": "2023-11-26T15:45:46.000000Z"
+    "updated_at": "2023-11-26T15:45:46.000000Z"
 }
+
 The user_id represents the user that created the schedule.
-Admin Authentication
+
+
+**Admin Authentication**
+
 Pill-pal-api comes with the default admin user? You can log in as an admin by making an HTTP POST call to the following route.
+
 https://pillpal-api.pouletmedia.ng/api/login
+
 API Payload & Response
-{ "email":"admin@pill-pal.poulet.ng",
- "password":"hydra" }
+
+{ 
+   "email":"admin@pill-pal.poulet.ng",
+   "password":"hydra" 
+}
+
 You will get a JSON response with a user token. You need this admin token for making any call to other routes protected by admin ability.
-{ "error": 0, 
-"token": "1|se9wkPKTxevv9jpVgXN8wS5tYKx53wuRLqvRuqCR" }
+
+{
+"error": 0, 
+"token": "1|se9wkPKTxevv9jpVgXN8wS5tYKx53wuRLqvRuqCR"
+}
 
 For any unsuccessful attempt, you will receive a 401 error response.
 
-{ "error": 1,
- "message": "invalid credentials" }
-Get all patients schedules
+{
+ "error": 1,
+ "message": "invalid credentials"
+}
+
+
+**Get all patients schedules**
+
 This requires admin ability
+
 Make a HTTP GET request to the following endpoint https://pillpal-api.pouletmedia.ng/api/schedule
 
 
