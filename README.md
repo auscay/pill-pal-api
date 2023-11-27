@@ -28,6 +28,7 @@ You can send a Form Multipart payload or a JSON payload like this:
 
 You will receive a 201 response like this
 
+```json
 {
     "error": 0,
     "message": "Schedule created sucessfully",
@@ -46,7 +47,7 @@ You will receive a 201 response like this
         "id": 1
     }
 }
-
+```
 
 **Show one medication schedule**
 
@@ -59,6 +60,7 @@ For example GET https://pillpal-api.pouletmedia.ng/api/schedule/1
 
 You will receive a 201 response like this
 
+```json
 {
 	"id": 1
         "medication_name": "TEGRITOL",
@@ -73,13 +75,16 @@ You will receive a 201 response like this
         "updated_at": "2023-11-25T19:57:15.000000Z",
         "created_at": "2023-11-25T19:57:15.000000Z",
 }
+```
 
 If the id is not found you will get a response like this
+
+```json
 {
     "error": 1,
     "message": "No query results found"
 }
-
+```
 
 **Update a medication schedule**
 
@@ -92,7 +97,9 @@ API Payload & Response
 
 You can send a Form Multipart payload or a JSON payload like this.
 
- {
+```json
+
+{
     "medication_name": "Ciprotab",
     "dosage": "5",
     "unit": "one",
@@ -104,7 +111,10 @@ You can send a Form Multipart payload or a JSON payload like this.
     "notification_preferences": "text"
 }
 
+```
 You will receive a 201 response like this
+
+```json
 
 {
     "error": 0,
@@ -124,6 +134,7 @@ You will receive a 201 response like this
         
     }
 }
+```
 
 **Delete one medication schedule**
 
@@ -135,11 +146,13 @@ The {id} should be replaced by the specific id of the schedule
 For example DELETE https://pillpal-api.pouletmedia.ng/api/schedule/1
 
 You will receive a 201 response like this
+
+```json
 {
     "error": 0,
     "message": "Schedule deleted successfully"
 }
-
+```
 
 **Authorization & Relationships**
 
@@ -152,6 +165,8 @@ Authenticated users can view only their personal created schedules using the fol
 For example GET https://pillpal-api.pouletmedia.ng/api/mySchedule
 
 You will receive a 201 response like this:
+
+```json
 {
    "id": 11,
    `"user_id": 2,`
@@ -167,6 +182,7 @@ You will receive a 201 response like this:
    `"created_at": "2023-11-26T15:45:46.000000Z",`
     "updated_at": "2023-11-26T15:45:46.000000Z"
 }
+```
 
 The user_id represents the user that created the schedule.
 
@@ -179,25 +195,31 @@ https://pillpal-api.pouletmedia.ng/api/login
 
 API Payload & Response
 
+```json
 { 
    "email":"admin@pill-pal.poulet.ng",
    "password":"hydra" 
 }
+```
+
 
 You will get a JSON response with a user token. You need this admin token for making any call to other routes protected by admin ability.
 
+```json
 {
 "error": 0, 
 "token": "1|se9wkPKTxevv9jpVgXN8wS5tYKx53wuRLqvRuqCR"
 }
+```
 
 For any unsuccessful attempt, you will receive a 401 error response.
 
+```json
 {
  "error": 1,
  "message": "invalid credentials"
 }
-
+```
 
 **Get all patients schedules**
 
