@@ -1,14 +1,17 @@
-User Role and Management can be found on Hydra api documentation
+User Role and Management can be found on Hydra api documentation https://github.com/auscay/hydra
 
 
 
-Medication Schedule Documentation
-Create a Medication Schedule
+## **Medication Schedule Documentation**
+
+### **Create a Medication Schedule**
+
 You can make an HTTP POST call to create a new schedule at the following endpoint:
 
-Endpoint: https://pillpal-api.pouletmedia.ng/api/schedule
+**Endpoint:** `https://pillpal-api.pouletmedia.ng/api/schedule`
 
-API Payload & Response
+### **API Payload & Response**
+
 You can send a Form Multipart payload or a JSON payload like this:
 
 ```json
