@@ -52,7 +52,7 @@ You will receive a 201 response like this
 }
 ```
 
-**Show one medication schedule**
+### **Show one medication schedule**
 
 You can make an HTTP GET call to show a single schedule to the following endpoint.
 https://pillpal-api.pouletmedia.ng/api/schedule/{id}
@@ -89,7 +89,7 @@ If the id is not found you will get a response like this
 }
 ```
 
-**Update a medication schedule**
+### **Update a medication schedule**
 
 You can make an HTTP PUT call to create a new schedule to the following endpoint.
 https://pillpal-api.pouletmedia.ng/api/schedule/{id}
@@ -139,7 +139,7 @@ You will receive a 201 response like this
 }
 ```
 
-**Delete one medication schedule**
+### **Delete one medication schedule**
 
 You can make an HTTP DELETE call to delete a single schedule to the following endpoint.
 https://pillpal-api.pouletmedia.ng/api/schedule/{id}
@@ -157,9 +157,9 @@ You will receive a 201 response like this
 }
 ```
 
-**Authorization & Relationships**
+## **Authorization & Relationships**
 
-User/Admin Authorization
+## **User/Admin Authorization**
 
 Only authenticated users can create schedules
 
@@ -172,10 +172,10 @@ You will receive a 201 response like this:
 ```json
 {
    "id": 11,
-   "user_id": 2,`
+   "user_id": 2,
    "medication_name": "Chroloroquine",
-   "dosage": 500,`
-   "unit": mg,`
+   "dosage": 500,
+   "unit": mg,
    "medication_cycle": "weekly",
    "start_date": "2023-11-26",     
     "end_date": "2023-11-26",
