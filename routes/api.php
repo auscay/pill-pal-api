@@ -39,11 +39,13 @@ Route::apiResource('users.roles', UserRoleController::class)->except(['create', 
 Route::apiResource('schedule', ScheduleController::class)->except('index', 'show')->middleware('auth:sanctum');
 
 // Get all schedule info
-Route::get('schedule',[ScheduleController::class, 'index'])->middleware('auth:sanctum', 'ability:admin');
+Route::get('schedule', [ScheduleController::class, 'index'])->middleware('auth:sanctum', 'ability:admin');
 
 // Get one schedule info
-Route::get('schedule',[ScheduleController::class, 'show'])->middleware('auth:sanctum', 'ability:admin');
+Route::get('schedule/{schedule}',[ScheduleController::class, 'show'])->middleware(['auth:sanctum', 'ability:admin']);
 
 // Get user schedule
 Route::get('mySchedule', [ScheduleController::class, 'schedule'])->middleware('auth:sanctum');
+
+Route::get('/send-subscription-emails', [UserController::class, 'sendSubscriptionEmails']);
 
