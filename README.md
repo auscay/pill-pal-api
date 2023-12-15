@@ -201,7 +201,7 @@ API Payload & Response
 ```json
 { 
    "email":"admin@pill-pal.poulet.ng",
-   "password":"hydra" 
+   "password":"" 
 }
 ```
 
